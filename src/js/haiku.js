@@ -8,16 +8,29 @@ export default class Haiku {
   vowelCount() {
     let vowels = ["a", "e", "i", "o", "u"]
     let vowelCount = 0;
-
-    for (let j=0; j < this.sentence1.length; j++) {
-      for (let i=0; i < vowels.length; i++) {
-        if (this.sentence1[j] === vowels[i]) {
-          console.log(this.sentence1[j]);
-          vowelCount++;
+    let text = [this.sentence1.split(""), this.sentence2.split(""), this.sentence3.split("")];
+    for (let j=0; j < text.length; j++) {
+      for (let k=0; k < text[j].length; k++) {
+        for (let i=0; i < vowels.length; i++) {
+          if (text[j][k] === vowels[i]) {
+            vowelCount++;
+          }
         }
       }
     }
     return vowelCount;
+  }
+  syllableCount() {
+    let vCount = this.vowelCount()
+    let text = [this.sentence1.split(" "), this.sentence2.split(" "), this.sentence3.split(" ")]
+    let sCount = vCount;
+    for (let i = 0; i < text.length; i ++) {
+      if (text[i].includes("ea")) {
+        console.log(text[i]);
+        sCount = sCount - 1;
+      }
+    }
+    return sCount;
   }
 }
 
