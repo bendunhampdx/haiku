@@ -1,4 +1,5 @@
-import Haiku from './../src/js/haiku.js';
+import { Haiku } from './../src/js/haiku.js';
+import { Word } from './../src/js/haiku.js';
 
 describe('Haiku', () => {
 
@@ -7,8 +8,14 @@ describe('Haiku', () => {
     expect(haiku.vowelCount()).toEqual(11);
   })
 
-  test('should correctly determine the amount of syllables in a phrase', () => {
-    const haiku = new Haiku("beaches", "hello", "hi")
-    expect(haiku.syllableCount()).toEqual(5)
+ 
+})
+
+
+
+describe('Word', () => {
+  test('should correctly count the vowels in a single word', () => {
+    const word = new Word("hello");
+    expect(word.wordVowelCount()).toEqual(2)
   })
 })

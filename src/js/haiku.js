@@ -1,4 +1,4 @@
-export default class Haiku {
+export class Haiku {
   constructor(sentence1, sentence2, sentence3) {
     this.sentence1 = sentence1;
     this.sentence2 = sentence2;
@@ -20,17 +20,25 @@ export default class Haiku {
     }
     return vowelCount;
   }
-  syllableCount() {
-    let vCount = this.vowelCount()
-    let text = [this.sentence1.split(" "), this.sentence2.split(" "), this.sentence3.split(" ")]
-    let sCount = vCount;
-    for (let i = 0; i < text.length; i ++) {
-      if (text[i].includes("ea")) {
-        console.log(text[i]);
-        sCount = sCount - 1;
+}
+
+export class Word {
+  constructor(word) {
+    this.word = word.replace(/[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\-./:;<=>?@[\]^_`{|}~]/,"");
+  }
+
+  wordVowelCount() {
+    const vowels = ["a", "e", "i", "o", "u"];
+    const letterArray = this.word.toLowerCase().split("");
+    let vowelCount = 0;
+    for (let i=0; i < letterArray.length; i++) {
+      for (let j=0; j < vowels.length; j++) {
+        if (letterArray[i] === vowels[j]) {
+          vowelCount++;
+        }
       }
     }
-    return sCount;
+    return vowelCount;
   }
 }
 
