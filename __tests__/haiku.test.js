@@ -27,7 +27,7 @@ describe('Word', () => {
   });
 
   test('it will check for words with two or more consecutive vowels and consider that as one syllable', () => {
-    word = new Word('beaches');
-    expect(word.multiVowelCount()).toEqual(2)
+    const word = new Word('beaches');
+    expect(word.multiVowelCount()).toEqual(1)
   });
 });

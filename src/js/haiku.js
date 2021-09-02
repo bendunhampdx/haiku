@@ -56,6 +56,25 @@ export class Word {
     });
     return vowelCheckArray;
   }
+  multiVowelCount() {
+    let vowelPosArray = this.vowelArray();
+    let multiVowelCounter = 0;
+    let counter = 0;
+    vowelPosArray.forEach(i => {
+      if (i === 1) {
+        counter++;
+      } else {
+        if (counter !=0) {
+          multiVowelCounter = multiVowelCounter + counter -1;
+          counter = 0;
+        }
+      }
+    });
+    if (counter > 0) {
+      multiVowelCounter = multiVowelCounter + counter - 1;
+    }
+    return multiVowelCounter;
+  }
 }
 
 
