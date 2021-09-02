@@ -40,6 +40,22 @@ export class Word {
     }
     return vowelCount;
   }
+  vowelArray() {
+    const vowelArray = ["a", "e", "i", "o", "u"];
+    const letterArray = this.word.toLowerCase().split("");
+    let vowelCheckArray = [];
+    let vowelCheck = 0;
+    letterArray.forEach(i => {
+      vowelArray.forEach(j => {
+        if (j.includes(i)) {
+          vowelCheck = 1;
+        }
+      });
+      vowelCheckArray.push(vowelCheck);
+      vowelCheck = 0;
+    });
+    return vowelCheckArray;
+  }
 }
 
 

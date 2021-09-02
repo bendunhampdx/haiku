@@ -14,8 +14,20 @@ describe('Haiku', () => {
 
 
 describe('Word', () => {
+  
   test('should correctly count the vowels in a single word', () => {
     const word = new Word("hello");
     expect(word.wordVowelCount()).toEqual(2)
   })
-})
+
+
+  test('it will create an array with the position of the vowels of the word', () => {
+    const word = new Word("beaches");
+    expect(word.vowelArray()).toEqual([0,1,1,0,0,1,0]);
+  });
+
+  test('it will check for words with two or more consecutive vowels and consider that as one syllable', () => {
+    word = new Word('beaches');
+    expect(word.multiVowelCount()).toEqual(2)
+  });
+});
