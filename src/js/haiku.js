@@ -5,6 +5,16 @@ export class Haiku {
     this.sentence3 = sentence3;
   }
 
+  checkHaiku() {
+    let checkArray = this.syllableCount().join("")
+    let correctHaiku = "575"
+    if(checkArray === correctHaiku) {
+      return "This is a Haiku!";
+    } else {
+      return "This is not a haiku and the poets of lore are quite mad you even tried!"
+    }
+  }
+
   vowelCount() {
     let vowels = ["a", "e", "i", "o", "u", "y"]
     let vowelLineArray = [];

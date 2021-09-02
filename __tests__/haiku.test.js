@@ -5,6 +5,10 @@ describe('Haiku', () => {
 
   let haiku = new Haiku("i walk in the park", "the park is very windy", "i lost my old hat");
 
+  test('should verify whether poem is a haiku', () => {
+    expect(haiku.checkHaiku()).toEqual("This is a Haiku!")
+  })
+
   test('should count the number of vowels in each sentence', () => {
     expect(haiku.vowelCount()).toEqual([5,7,5]);
   })
