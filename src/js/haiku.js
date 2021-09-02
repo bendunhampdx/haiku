@@ -92,6 +92,14 @@ export class Word {
       return 0;
     }
   }
+
+  syllableWord() {
+    let vowelTotal = this.wordVowelCount();
+    let multiVowelTotal = this.multiVowelCount();
+    let endsWithVCE = this.endsWithVCE();
+    let syllableCount = vowelTotal - multiVowelTotal - endsWithVCE;
+    return syllableCount;
+  }
 }
 
 
