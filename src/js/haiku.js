@@ -74,6 +74,23 @@ export class Word {
       multiVowelCounter = multiVowelCounter + counter - 1;
     }
     return multiVowelCounter;
+  }  
+
+  endsWithVCE() {
+    const letterArray = this.word.toLowerCase().split("");
+    if (letterArray.length > 3) {
+      if (letterArray[letterArray.length-1] === "e") {
+        if (letterArray[letterArray.length-2] === "l") {
+          return 0;
+        } else {
+          return 1;
+        }
+      } else {
+        return 0;
+      }
+    } else {
+      return 0;
+    }
   }
 }
 

@@ -30,4 +30,9 @@ describe('Word', () => {
     const word = new Word('beaches');
     expect(word.multiVowelCount()).toEqual(1)
   });
+
+  test('should return 1 if a word ends in -vowel-consonant-"e"', () => {
+    const word = new Word("abide");
+    expect(word.endsWithVCE()).toEqual(1);
+  })
 });
