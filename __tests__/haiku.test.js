@@ -8,8 +8,9 @@ describe('Haiku', () => {
   test('should count the number of vowels in each sentence', () => {
     expect(haiku.vowelCount()).toEqual([5,7,5]);
   })
-
- 
+  test('should count the number of syllables in each sentence', () => {
+    expect(haiku.syllableCount()).toEqual([5,7,5]);
+  })
 })
 
 

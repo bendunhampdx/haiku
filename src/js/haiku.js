@@ -30,7 +30,30 @@ export class Haiku {
     });
     vowelLineArray.push(sentence1VowelCount,sentence2VowelCount,sentence3VowelCount);
     return vowelLineArray;
-  } 
+  }
+
+  syllableCount() {
+    let sentence1SyllableCount = 0;
+    let sentence2SyllableCount = 0;
+    let sentence3SyllableCount = 0;
+    const sentence1Words = this.sentence1.split(" ");
+    const sentence2Words = this.sentence2.split(" ");
+    const sentence3Words = this.sentence3.split(" ");
+    sentence1Words.forEach(i => {
+      let word = new Word(i);
+      sentence1SyllableCount += word.syllableWord();
+    });
+    sentence2Words.forEach(i => {
+      let word = new Word(i);
+      sentence2SyllableCount += word.syllableWord();
+    });
+    sentence3Words.forEach(i => {
+      let word = new Word(i);
+      sentence3SyllableCount += word.syllableWord();
+    });
+     let syllableArray = [sentence1SyllableCount,sentence2SyllableCount,sentence3SyllableCount];
+    return syllableArray;
+  }
 }
 
 export class Word {
