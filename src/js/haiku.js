@@ -6,20 +6,31 @@ export class Haiku {
   }
 
   vowelCount() {
-    let vowels = ["a", "e", "i", "o", "u"]
-    let vowelCount = 0;
-    let text = [this.sentence1.split(""), this.sentence2.split(""), this.sentence3.split("")];
-    for (let j=0; j < text.length; j++) {
-      for (let k=0; k < text[j].length; k++) {
-        for (let i=0; i < vowels.length; i++) {
-          if (text[j][k] === vowels[i]) {
-            vowelCount++;
-          }
+    let vowels = ["a", "e", "i", "o", "u", "y"]
+    let vowelLineArray = [];
+    let sentence1VowelCount = 0;
+    let sentence2VowelCount = 0;
+    let sentence3VowelCount = 0;
+    vowels.forEach(i => {
+      this.sentence1.toLowerCase().split("").forEach(j => {
+        if (j.includes(i)) {
+          sentence1VowelCount++;
         }
-      }
-    }
-    return vowelCount;
-  }
+      });
+      this.sentence2.toLowerCase().split("").forEach(j => {
+        if (j.includes(i)) {
+          sentence2VowelCount++;
+        }
+      });
+      this.sentence3.toLowerCase().split("").forEach(j => {
+        if (j.includes(i)) {
+          sentence3VowelCount++
+        }
+      });
+    });
+    vowelLineArray.push(sentence1VowelCount,sentence2VowelCount,sentence3VowelCount);
+    return vowelLineArray;
+  } 
 }
 
 export class Word {
@@ -28,7 +39,7 @@ export class Word {
   }
 
   wordVowelCount() {
-    const vowels = ["a", "e", "i", "o", "u"];
+    const vowels = ["a", "e", "i", "o", "u", "y"];
     const letterArray = this.word.toLowerCase().split("");
     let vowelCount = 0;
     for (let i=0; i < letterArray.length; i++) {
@@ -41,7 +52,7 @@ export class Word {
     return vowelCount;
   }
   vowelArray() {
-    const vowelArray = ["a", "e", "i", "o", "u"];
+    const vowelArray = ["a", "e", "i", "o", "u", "y"];
     const letterArray = this.word.toLowerCase().split("");
     let vowelCheckArray = [];
     let vowelCheck = 0;

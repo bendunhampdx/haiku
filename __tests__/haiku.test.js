@@ -3,9 +3,10 @@ import { Word } from './../src/js/haiku.js';
 
 describe('Haiku', () => {
 
-  test('should correctly recognize the number of vowels in a phrase', () => {
-    const haiku = new Haiku("hello there", "hi you", "boo bear");
-    expect(haiku.vowelCount()).toEqual(11);
+  let haiku = new Haiku("i walk in the park", "the park is very windy", "i lost my old hat");
+
+  test('should count the number of vowels in each sentence', () => {
+    expect(haiku.vowelCount()).toEqual([5,7,5]);
   })
 
  
