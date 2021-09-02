@@ -40,4 +40,9 @@ describe('Word', () => {
     const word = new Word('beaches');
     expect(word.syllableWord()).toEqual(2);
   });
+
+  test('it will remove special characters for use in other tests', () => {
+    const word = new Word("Ain't");
+    expect(word.word).toEqual("Aint");
+  })
 });
